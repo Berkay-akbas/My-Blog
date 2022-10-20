@@ -1,4 +1,4 @@
-# Hello-Rails
+# My-Blog
 
 > This repo is for learning rails by building a web app.
 
