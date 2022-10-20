@@ -8,8 +8,4 @@ class User < ApplicationRecord
   def recent_posts
     posts.order(created_at: :desc).limit(3)
   end
-
-  def user_post_count
-    puts "posts count: #{posts_count}"
-  end
 end
