@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let (:user) { User.create(name: 'John Doe', posts_count: 5, id: 1) }
-  subject { Post.create(title: 'title', text: 'text', comments_count: 0, likes_count: 0, author_id: user.id)  }
-
-  
+  let(:user) { User.create(name: 'John Doe', posts_count: 5, id: 1) }
+  subject { Post.create(title: 'title', text: 'text', comments_count: 0, likes_count: 0, author_id: user.id) }
 
   before { subject.save }
 
