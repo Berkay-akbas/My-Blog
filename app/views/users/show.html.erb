@@ -37,3 +37,6 @@
 <div class='link-to-all'>
   <%= link_to  "See all posts", user_posts_path(@user.id) %></span>
 </div>
+<div>
+  <%= link_to "Add a post", new_user_post_path(@user.id) %>
+</div>

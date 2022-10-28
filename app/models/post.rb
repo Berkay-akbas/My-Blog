@@ -6,6 +6,10 @@ class Post < ApplicationRecord
   has_many :likes, foreign_key: :post_id
   has_many :comments, foreign_key: :post_id
 
+  def liked?(user)
+    likes.find_by(author_id: user.id).present?
+  end
+
   def recent_comments
     comments.order(created_at: :desc).limit(5)
   end
