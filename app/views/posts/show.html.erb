@@ -1,1 +1,8 @@
-<h1> User posts are coming soon!</h1>
+post #<%= @post.id %> by <%= @user.name %> :  comments count: <%= @posts.find_by(id: params[:id]).comments_count || 0 %> likes count: <%= @posts.find_by(id: params[:id]).likes_count || 0 %> <br>
+text: <%= @posts.find_by(id: params[:id]).text %>
+
+comments: <br>
+<% @post.comments.each do |comment|%>
+<%=  @users.find_by_id(comment.author_id).name%>:
+<%= comment.text %> <br>
+<% end %>

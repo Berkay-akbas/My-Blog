@@ -1,1 +1,47 @@
-<h1> Users posts are coming soon!</h1>
+<div class='user-info-wrapper'>
+  <%= image_tag (@user.photo), class:"user-img" %>
+  <div class='user-name'>
+    <h2><%= @user.name %> </h2>
+    <p>Number of posts: <%= @user.posts_count || 0 %> </p>
+  </div>
+</div>
+
+
+
+<% @count = 0 %>
+<% @user.posts.each do |post|  %>
+<ul>
+  <li>
+    <div class="post-info">
+      <div class="post-number">
+        <%= link_to  "Post ##{@count += 1}", user_post_path(post.author_id ,post.id) %>
+      </div>
+      <div class="post-text">
+        <p><%= post.text %></p>
+      </div>
+      <div class="post-counters">
+        <div class="comments-count">
+          <p>Comments: <%= post.comments_count || 0 %>,</p>
+        </div>
+        <div class="likes-count">
+          <p>Likes: <%= post.likes_count || 0 %></p>
+        </div>
+      </div>
+    </div>
+    <div class='comments'>
+      <% post.comments.each do |comment| %>
+      <div class='comment'>
+        <div class='comment-info'>
+          <div class='comment-author'>
+            <p><%= @users.find_by(id: comment.author_id).name %></p>
+          </div>
+          <div class='comment-text'>
+            <p><%= comment.text %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </li>
+</ul>
+<% end %>

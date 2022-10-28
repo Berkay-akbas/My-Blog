@@ -1,1 +1,39 @@
-<h1>Users are coming soon!</h1>
+<%= stylesheet_link_tag "user_show.css" %>
+
+<div class='user-info-wrapper'>
+  <%= image_tag (@user.photo), class:"user-img" %>
+  <div class='user-name'>
+    <h2><%= @user.name %> </h2>
+    <p>Number of posts: <%= @user.posts_count || 0 %> </p>
+  </div>
+</div>
+<div class='bio'>
+  <p>Bio</p>
+  <p><%= @user.bio %></p>
+</div> 
+  <% if @user.posts_count == nil || @user.posts_count == 0   %>
+  <p>User has no post</p>
+  <% end %>
+<ul class='posts'>
+  <% @user.posts.limit(3).each do |post|  %>
+  <li>
+    <div class='post-number'>
+
+    </div>
+    <div class='post-text'>
+      <%= post.text %>
+    </div>
+    <div class='post-counters'>
+      <div class='comments-count'>
+        <p>Comments: <%= post.comments_count || 0 %>,</p>
+      </div>
+      <div class='likes-count'>
+        <p>Likes: <%= post.likes_count || 0 %></p>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
+<div class='link-to-all'>
+  <%= link_to  "See all posts", user_posts_path(@user.id) %></span>
+</div>
