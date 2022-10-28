@@ -20,7 +20,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], text: params[:text], author_id: current_user().id, likes_count: 0, comments_count: 0)
+    @post = Post.new(title: params[:title], text: params[:text], author_id: current_user.id, likes_count: 0,
+                     comments_count: 0)
     @post.update_user_posts_counter
     if @post.save
       redirect_to user_posts_path
@@ -28,5 +29,4 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
 end
