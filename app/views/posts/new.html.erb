@@ -1,0 +1,11 @@
+<h1>New Post</h1>
+
+<%= form_with url: user_posts_path, method: :post, local: true do %>
+   <div>
+    <%= label_tag "title"%>
+    <%= text_field_tag "title" %>
+   <%= label_tag "text" %>
+    <%= text_area_tag "text" %>
+    <%= submit_tag "Send" %>
+ </div>
+<% end %>

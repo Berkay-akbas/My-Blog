@@ -1,8 +1,24 @@
 post #<%= @post.id %> by <%= @user.name %> :  comments count: <%= @posts.find_by(id: params[:id]).comments_count || 0 %> likes count: <%= @posts.find_by(id: params[:id]).likes_count || 0 %> <br>
-text: <%= @posts.find_by(id: params[:id]).text %>
+text: <%= @posts.find_by(id: params[:id]).text %><br>
 
 comments: <br>
+
 <% @post.comments.each do |comment|%>
 <%=  @users.find_by_id(comment.author_id).name%>:
 <%= comment.text %> <br>
+<% end %>
+
+<% if @post.liked?(current_user) %>
+  <%= button_to "Like", user_post_likes_path(post_id: @post.id), method: "post", disabled: true %>
+<% else %> 
+  <%= button_to "Like", user_post_likes_path(post_id: @post.id), method: "post" %>
+<% end %>
+
+<h2>Leave a comment</h2>
+<%= form_with url: user_post_comments_path(post_id: @post.id), method: :post, local: true do %>
+   <div>
+    <%= label_tag "text"%>
+    <%= text_field_tag "text" %>
+    <%= submit_tag "Send" %>
+ </div>
 <% end %>
