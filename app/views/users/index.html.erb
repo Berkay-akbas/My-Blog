@@ -3,7 +3,9 @@
 <ul class="user-list">
 <% @users.order(:id).each do |person| %>
   <li>
-    <%= image_tag (person.photo), class:"user-thumbnail" %>
+     <% if (person.photo) %>
+     <%= image_tag (person.photo), class:"user-thumbnail" %>
+ <% end %>
     <div class="user-info">
       <h2><%= link_to  person.name, user_path(person.id) %></h2>
       <p>Number of posts: <%= person.posts_count || 0 %></p>

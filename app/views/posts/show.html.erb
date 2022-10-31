@@ -1,4 +1,5 @@
 post #<%= @post.id %> by <%= @user.name %> :  comments count: <%= @posts.find_by(id: params[:id]).comments_count || 0 %> likes count: <%= @posts.find_by(id: params[:id]).likes_count || 0 %> <br>
+<div>title: <%= @post.title %></div>
 text: <%= @posts.find_by(id: params[:id]).text %><br>
 
 comments: <br>
