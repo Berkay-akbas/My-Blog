@@ -9,7 +9,7 @@
 
 
 <% @count = 0 %>
-<% @user.posts.each do |post|  %>
+<% @user.posts.includes([:comments]).each do |post|  %>
 <ul>
   <li>
     <div class="post-info">
