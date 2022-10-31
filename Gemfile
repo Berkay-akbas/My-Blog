@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-gem "bullet"
+gem 'bullet'
 
 ruby '3.1.2'
 
@@ -54,10 +54,10 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
-  gem "database_cleaner"
-  gem "rspec-rails"
+  gem 'rspec-rails'
 end
 
 group :development do
