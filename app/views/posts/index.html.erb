@@ -14,6 +14,11 @@
 <% @user.posts.includes([:comments]).each do |post|  %>
 <ul>
   <li>
+  <div class='delete'>
+    <% if can? :destroy, post %>
+      <%= button_to "Delete", user_post_path(post.author_id ,post.id), method: :delete %>
+    <% end %>
+      </div>
     <div class="post-info">
       <div class="post-number">
         <%= link_to  "Post ##{@count += 1}", user_post_path(post.author_id ,post.id) %>
@@ -43,6 +48,7 @@
         </div>
       </div>
       <% end %>
+      
     </div>
   </li>
 </ul>

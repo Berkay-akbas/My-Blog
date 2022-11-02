@@ -5,4 +5,11 @@ class CommentsController < ApplicationController
     @comment.update_post_comments_counter
     redirect_to user_post_path(params[:user_id], params[:post_id])
   end
+
+  def destroy
+    @comment = Comment.find_by_id(params[:id])
+    @comment.destroy
+    @comment.update_post_comments_counter
+    redirect_to user_post_path(params[:user_id], params[:post_id])
+  end
 end

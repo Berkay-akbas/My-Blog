@@ -29,4 +29,11 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @post = Post.find_by_id(params[:id])
+    @post.destroy
+    @post.update_user_posts_counter
+    redirect_to user_posts_path
+  end
 end
