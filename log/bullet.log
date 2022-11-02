@@ -19,3 +19,10 @@ USE eager loading detected
   Add to your query: .includes([:comments])
 Call stack
 
+2022-11-01 18:40:51[WARN] user: berkayakbas
+GET /users/1/posts
+USE eager loading detected
+  Post => [:comments]
+  Add to your query: .includes([:comments])
+Call stack
+
