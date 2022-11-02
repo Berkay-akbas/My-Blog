@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
     users_path
   end
 
-  def after_inactive_sign_up_path_for(_resource)
-    users_path
-  end
-
   protected
 
   def update_allowed_parameters
