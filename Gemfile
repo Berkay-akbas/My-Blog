@@ -5,6 +5,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'bullet'
 
+gem 'cancancan'
+
 gem 'devise'
 
 ruby '3.1.2'
