@@ -1,4 +1,4 @@
-class Api::CommentsController < Api::BaseController
+class Api::CommentsController < ActionController::API
   before_action :set_comment, only: %i[show update destroy]
   def index
     @post = Post.find(params[:post_id])
