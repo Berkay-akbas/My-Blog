@@ -1,0 +1,14 @@
+.new_user {
+  max-width: 30rem;
+  margin: auto;
+}
+
+.field input {
+  width: 98.5%;
+  margin-bottom: 1rem;
+}
+
+.actions input {
+  width: 100%;
+  margin-bottom: 1rem;
+}

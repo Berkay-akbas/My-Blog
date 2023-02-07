@@ -1,0 +1,23 @@
+.user-info-wrapper {
+  display: flex;
+}
+
+.user-name {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  border: solid 1px black;
+  margin: 1rem 0;
+}
+
+.user-img {
+  width: 10%;
+  height: 4rem;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
+.bio {
+  border: solid 2px black;
+  padding: 1rem;
+}
